@@ -82,13 +82,11 @@ export class V1Controller {
 
     ctx.user = user;
 
-    console.log(ctx.session);
     return new HttpResponseOK(ctx.session.getToken());
   }
 
   @Post('/signout')
   async signout(ctx: Context) {
-    console.log(ctx.session);
     if (ctx.session) {
       await ctx.session.destroy();
     }
@@ -98,7 +96,6 @@ export class V1Controller {
   @Get('/secret')
   @UseSessions({ required: true })
   async readSecret(ctx: Context) {
-    console.log(ctx.session);
     // get random record from Secrets table
     const randomSecret = await Secret.createQueryBuilder('secret')
       .select()
