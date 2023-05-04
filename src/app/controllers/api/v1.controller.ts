@@ -75,6 +75,7 @@ export class V1Controller {
     if (!user) {
       const newUser = new User();
       newUser.address = address;
+      newUser.signature = signature;
       await newUser.save();
       ctx.user = newUser;
       return new HttpResponseOK(ctx.session.getToken());

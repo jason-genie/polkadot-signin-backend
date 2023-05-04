@@ -1,3 +1,4 @@
+import { DatabaseSession } from '@foal/typeorm';
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -11,16 +12,9 @@ export class User extends BaseEntity {
 
   @Column({ nullable: true })
   signature: string;
-
-  @Column({ unique: true, nullable: true })
-  email: string;
-
-  @Column({ nullable: true })
-  password: string;
   
-  @Column({ nullable: true })
-  name: string;
-
-  @Column({ nullable: true })
-  avatar: string;
+  // @Column({ nullable: true })
+  // name: string;
 }
+
+export { DatabaseSession }
